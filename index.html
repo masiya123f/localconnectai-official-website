@@ -1,283 +1,605 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LocalConnect AI | Revolutionizing Financial Crime Intelligence</title>
-<!-- Favicon - You can replace this with your own icon later -->
-<link rel="icon" href="https://placehold.co/32x32/2a9d8f/ffffff?text=AI" type="image/x-icon">
-<!-- Tailwind CSS CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<!-- Google Fonts: Inter -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-body {
-font-family: 'Inter', sans-serif;
-background-color: #f8fafc; /* Tailwind: bg-slate-50 */
-color: #334155; /* Tailwind: text-slate-700 */
-}
-/* Custom scrollbar for better aesthetics */
-::-webkit-scrollbar {
-width: 8px;
-}
-::-webkit-scrollbar-track {
-background: #e2e8f0; /* Tailwind: bg-slate-200 */
-border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-background: #2a9d8f; /* Primary brand color */
-border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-background: #217d72;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalConnect AI | Redefining Financial Integrity. Unstoppable.</title>
+    <!-- Favicon - Placeholder, replace with your actual logo later -->
+    <link rel="icon" href="https://placehold.co/32x32/050505/00FFFF?text=AI" type="image/x-icon">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505; /* Even deeper dark for ultimate feel */
+            color: #E0E0E0; /* Slightly brighter text */
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #101010;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00BCD4; /* More vibrant Cyan */
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00ACBF;
+        }
+
+        /* Custom Animations */
+        @keyframes glow-subtle {
+            0%, 100% { box-shadow: 0 0 8px rgba(0,255,255,0.4), 0 0 15px rgba(0,255,255,0.2); }
+            50% { box-shadow: 0 0 12px rgba(0,255,255,0.6), 0 0 25px rgba(0,255,255,0.3); }
+        }
+        .animate-glow-subtle {
+            animation: glow-subtle 4s infinite ease-in-out;
+        }
+
+        @keyframes fadeInScaleUp {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .animate-fade-in-scale-up {
+            opacity: 0; /* Hidden by default */
+            animation: fadeInScaleUp 1s ease-out forwards;
+            animation-delay: var(--animation-delay, 0s);
+        }
+
+        @keyframes slideInRight {
+            0% { opacity: 0; transform: translateX(50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        .animate-slide-in-right {
+            opacity: 0;
+            animation: slideInRight 0.8s ease-out forwards;
+            animation-delay: var(--animation-delay, 0s);
+        }
+
+        @keyframes slideInLeft {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        .animate-slide-in-left {
+            opacity: 0;
+            animation: slideInLeft 0.8s ease-out forwards;
+            animation-delay: var(--animation-delay, 0s);
+        }
+
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero specific animation for immediate impact */
+        .hero-element {
+            opacity: 0; /* Hidden by default, controlled by JS for sequential animation */
+        }
+        .hero-element-show {
+            animation: fadeInScaleUp 1s ease-out forwards;
+            animation-delay: var(--hero-delay, 0s);
+        }
+
+        /* Subtle grid pattern for backgrounds */
+        .grid-pattern {
+            background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        /* Card 3D Tilt Hover */
+        .card-3d-tilt {
+            transform-style: preserve-3d;
+            transition: all 0.3s ease-out;
+        }
+        .card-3d-tilt:hover {
+            transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0,255,255,0.2), 0 0 60px rgba(0,255,255,0.1);
+        }
+        .card-3d-tilt .inner-content {
+            transform: translateZ(20px); /* Pushes content forward in 3D space */
+        }
+
+        /* Bounce animation for icons (defined here for global access) */
+        @keyframes bounce-icon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .icon-bounce-on-hover:hover {
+            animation: bounce-icon 0.6s ease-in-out infinite alternate;
+        }
+    </style>
 </head>
 <body class="antialiased">
 
-<!-- Header Section -->
-<header class="bg-gray-900 text-white shadow-lg">
-<nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-<a href="#" class="text-3xl font-extrabold text-teal-400">LocalConnect AI</a>
-<!-- Mobile Menu Button (Hamburger) -->
-<button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
-<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-</svg>
-</button>
-<!-- Desktop Navigation -->
-<ul id="main-nav" class="hidden md:flex space-x-8 text-lg">
-<li><a href="#mission" class="hover:text-teal-400 transition duration-300">Our Mission</a></li>
-<li><a href="#solution" class="hover:text-teal-400 transition duration-300">The Solution</a></li>
-<li><a href="#differentiators" class="hover:text-teal-400 transition duration-300">Why Us</a></li>
-<li><a href="#join-us" class="hover:text-teal-400 transition duration-300">Join Us</a></li>
-<li><a href="#contact" class="hover:text-teal-400 transition duration-300">Contact</a></li>
-</ul>
-</nav>
-<!-- Mobile Navigation Dropdown -->
-<div id="mobile-menu" class="md:hidden hidden bg-gray-800 pb-4">
-<ul class="flex flex-col items-center space-y-4 text-xl">
-<li><a href="#mission" class="block py-2 hover:text-teal-400 transition duration-300">Our Mission</a></li>
-<li><a href="#solution" class="block py-2 hover:text-teal-400 transition duration-300">The Solution</a></li>
-<li><a href="#differentiators" class="block py-2 hover:text-teal-400 transition duration-300">Why Us</a></li>
-<li><a href="#join-us" class="block py-2 hover:text-teal-400 transition duration-300">Join Us</a></li>
-<li><a href="#contact" class="block py-2 hover:text-teal-400 transition duration-300">Contact</a></li>
-</ul>
-</div>
-</header>
+    <!-- Background Animation Canvas -->
+    <canvas id="background-canvas" class="fixed inset-0 w-full h-full z-0 opacity-10"></canvas>
 
-<!-- Hero Section -->
-<section class="relative bg-gradient-to-br from-gray-800 to-gray-900 text-white py-20 px-4 md:py-32 overflow-hidden rounded-b-lg shadow-xl">
-<div class="absolute inset-0 z-0">
-<!-- Animated background pattern (can be more complex with JS animations later) -->
-<div class="absolute top-0 left-0 w-64 h-64 bg-teal-500 opacity-10 blur-3xl rounded-full animate-pulse-slow"></div>
-<div class="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500 opacity-10 blur-3xl animate-pulse-fast animation-delay-2000"></div>
-</div>
-<div class="container mx-auto relative z-10 text-center">
-<h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-emerald-400 drop-shadow-lg">
-Redefining Financial Integrity for South Africa
-</h1>
-<p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
-Leveraging cutting-edge AI to predict, prevent, and decisively combat financial crime.
-</p>
-<a href="#join-us" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-full text-lg md:text-xl transition duration-300 transform hover:scale-105 shadow-lg">
-Join the Mission
-</a>
-<a href="#contact" class="ml-4 bg-transparent border-2 border-teal-500 hover:bg-teal-500 text-white font-bold py-3 px-8 rounded-full text-lg md:text-xl transition duration-300 transform hover:scale-105 shadow-lg">
-Learn More
-</a>
-</div>
-</section>
+    <!-- Header Section -->
+    <header class="bg-gray-950 text-white shadow-xl sticky top-0 z-50 border-b border-gray-800 backdrop-blur-sm bg-opacity-80">
+        <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="#" class="text-4xl lg:text-5xl font-extrabold gradient-text bg-gradient-to-r from-cyan-400 to-blue-500 tracking-tight">LocalConnect AI</a>
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-md hover:bg-gray-700 transition-all duration-300">
+                <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            <!-- Desktop Navigation -->
+            <ul id="main-nav" class="hidden md:flex space-x-10 text-xl font-medium">
+                <li><a href="#mission" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Our Mission</a></li>
+                <li><a href="#solution" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">The Solution</a></li>
+                <li><a href="#differentiators" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Why Us</a></li>
+                <li><a href="#join-us" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Join Us</a></li>
+                <li><a href="#contact" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- Mobile Navigation Dropdown -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-900 pb-6 shadow-inner border-t border-gray-800">
+            <ul class="flex flex-col items-center space-y-5 text-2xl py-4">
+                <li><a href="#mission" class="block py-2 px-4 hover:text-cyan-400 transition duration-300 w-full text-center">Our Mission</a></li>
+                <li><a href="#solution" class="block py-2 px-4 hover:text-cyan-400 transition duration-300 w-full text-center">The Solution</a></li>
+                <li><a href="#differentiators" class="block py-2 px-4 hover:text-cyan-400 transition duration-300 w-full text-center">Why Us</a></li>
+                <li><a href="#join-us" class="block py-2 px-4 hover:text-cyan-400 transition duration-300 w-full text-center">Join Us</a></li>
+                <li><a href="#contact" class="block py-2 px-4 hover:text-cyan-400 transition duration-300 w-full text-center">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
-<!-- Our Mission Section -->
-<section id="mission" class="py-16 px-4 bg-gradient-to-br from-white to-slate-50 rounded-lg shadow-md mx-auto my-8 max-w-6xl">
-<div class="container mx-auto text-center">
-<h2 class="text-4xl font-bold mb-8 text-gray-800">Our Mission: A Resilient Financial Future</h2>
-<p class="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed text-gray-700">
-South Africa is under siege by escalating financial crime, costing billions and impacting our global standing. At **LocalConnect AI**, our unwavering mission is to fundamentally transform how financial crime is fought. We aim to move beyond reactive measures, building an **intelligent, proactive, and interconnected ecosystem** that safeguards our nation's financial integrity, empowers institutions, and fosters a legacy of trust and prosperity.
-</p>
-</div>
-</section>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-gray-950 to-gray-900 text-white py-32 px-6 md:py-48 overflow-hidden rounded-b-3xl shadow-2xl border-b border-gray-800 z-10">
+        <div class="container mx-auto relative z-10 text-center">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-8 gradient-text bg-gradient-to-r from-blue-300 to-purple-400 drop-shadow-xl hero-element" style="--hero-delay: 0s;">
+                Redefining Financial Integrity.<br>Unstoppable.
+            </h1>
+            <p class="text-xl md:text-3xl lg:text-4xl mb-12 max-w-5xl mx-auto opacity-90 font-light hero-element" style="--hero-delay: 0.4s;">
+                Leveraging **cutting-edge AI and secure blockchain technologies** to predict, prevent, and decisively combat financial crime, building an **impenetrable** defense for our nation.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-6 sm:space-y-0 sm:space-x-8 hero-element" style="--hero-delay: 0.8s;">
+                <a href="#join-us" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-5 px-14 rounded-full text-xl md:text-2xl transition duration-300 transform hover:scale-105 shadow-xl animate-glow-subtle">
+                    Join the Mission
+                </a>
+                <a href="#contact" class="bg-transparent border-2 border-cyan-600 hover:bg-cyan-600 text-white font-bold py-5 px-14 rounded-full text-xl md:text-2xl transition duration-300 transform hover:scale-105 shadow-lg">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
 
-<!-- The Problem Section -->
-<section id="problem" class="py-16 px-4 bg-slate-100 rounded-lg shadow-md mx-auto my-8 max-w-6xl">
-<div class="container mx-auto">
-<h2 class="text-4xl font-bold text-center mb-12 text-gray-800">The Problem: Traditional Defenses Are Falling</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Problem Card 1 -->
-<div class="bg-white p-8 rounded-xl shadow-lg border border-red-200 transform hover:scale-105 transition duration-300">
-<div class="text-5xl mb-4 text-red-500 text-center">💸</div>
-<h3 class="text-2xl font-semibold mb-3 text-gray-800 text-center">Billions Lost Annually</h3>
-<p class="text-gray-600 text-center">Financial crime, fraud, and illicit flows continue to drain the economy, impacting businesses and citizens alike.</p>
-</div>
-<!-- Problem Card 2 -->
-<div class="bg-white p-8 rounded-xl shadow-lg border border-red-200 transform hover:scale-105 transition duration-300">
-<div class="text-5xl mb-4 text-red-500 text-center">⚠️</div>
-<h3 class="text-2xl font-semibold mb-3 text-gray-800 text-center">FATF Greylisting Burden</h3>
-<p class="text-gray-600 text-center">South Africa's greylisting pressures financial institutions to urgently enhance their AML/CTF capabilities.</p>
-</div>
-<!-- Problem Card 3 -->
-<div class="bg-white p-8 rounded-xl shadow-lg border border-red-200 transform hover:scale-105 transition duration-300">
-<div class="text-5xl mb-4 text-red-500 text-center">👻</div>
-<h3 class="text-2xl font-semibold mb-3 text-gray-800 text-center">Evolving Criminal Sophistication</h3>
-<p class="text-gray-600 text-center">Criminals adapt faster than traditional rule-based systems, leading to missed threats and new typologies.</p>
-</div>
-</div>
-</div>
-</section>
+    <!-- Our Mission Section -->
+    <section id="mission" class="py-24 px-6 bg-gray-900 text-gray-200 rounded-lg shadow-xl mx-auto my-20 max-w-7xl animate-fade-in-scale-up">
+        <div class="container mx-auto text-center">
+            <h2 class="text-5xl lg:text-6xl font-bold mb-12 gradient-text bg-gradient-to-r from-teal-400 to-green-500">Our Mission: A Resilient Financial Future</h2>
+            <p class="text-xl md:text-2xl lg:text-3xl max-w-5xl mx-auto leading-relaxed font-light">
+                South Africa is under siege by escalating financial crime, costing billions and impacting our global standing. At **LocalConnect AI**, our unwavering mission is to fundamentally transform how financial crime is fought. We aim to move beyond reactive measures, building an **intelligent, proactive, and interconnected ecosystem** that safeguards our nation's financial integrity, empowers institutions, and fosters a legacy of trust and prosperity.
+            </p>
+        </div>
+    </section>
 
-<!-- The Solution Section -->
-<section id="solution" class="py-16 px-4 bg-gradient-to-br from-white to-slate-50 rounded-lg shadow-md mx-auto my-8 max-w-6xl">
-<div class="container mx-auto text-center">
-<h2 class="text-4xl font-bold mb-12 text-gray-800">Our Solution: Intelligent, Proactive, Connected AI</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Solution Card 1: Predictive Anomaly Detection -->
-<div class="bg-white p-8 rounded-xl shadow-lg border border-teal-200 transform hover:scale-105 transition duration-300">
-<div class="text-5xl mb-4 text-teal-600 text-center">🧠</div>
-<h3 class="text-2xl font-semibold mb-3 text-gray-800 text-center">Predictive Anomaly Detection</h3>
-<p class="text-gray-600 text-center">Move beyond static rules. Our AI learns dynamic patterns to identify suspicious activities with far greater accuracy.</p>
-</div>
-<!-- Solution Card 2: Network Intelligence (GNNs) -->
-<div class="bg-white p-8 rounded-xl shadow-lg border border-teal-200 transform hover:scale-105 transition duration-300">
-<div class="text-5xl mb-4 text-teal-600 text-center">🕸️</div>
-<h3 class="text-2xl font-semibold mb-3 text-gray-800 text-center">Network Intelligence (GNNs)</h3>
-<p class="text-gray-600 text-center">Expose hidden criminal organizations by mapping complex relationships between accounts and entities.</p>
-</div>
-<!-- Solution Card 3: Proactive Threat Simulation (Generative AI) -->
-<div class="bg-white p-8 rounded-xl shadow-lg border border-teal-200 transform hover:scale-105 transition duration-300">
-<div class="text-5xl mb-4 text-teal-600 text-center">🔮</div>
-<h3 class="text-2xl fontu-semibold mb-3 text-gray-800 text-center">Proactive Threat Simulation</h3>
-<p class="text-gray-600 text-center">Generative AI simulates novel typologies, allowing us to anticipate and build defenses against future threats.</p>
-</div>
-<!-- Solution Card 4: Explainable AI (XAI) -->
-<div class="bg-white p-8 rounded-xl shadow-lg border border-teal-200 transform hover:scale-105 transition duration-300">
-<div class="text-5xl mb-4 text-teal-600 text-center">💡</div>
-<h3 class="text-2xl font-semibold mb-3 text-gray-800 text-center">Explainable AI (XAI)</h3>
-<p class="text-gray-600 text-center">Our AI provides clear, human-readable explanations for every flagged anomaly, empowering confident decisions.</p>
-</div>
-<!-- Solution Card 5: Privacy-Preserving Collective Intelligence (DLT) -->
-<div class="bg-white p-8 rounded-xl shadow-lg border border-teal-200 transform hover:scale-105 transition duration-300">
-<div class="text-5xl mb-4 text-teal-600 text-center">🤝</div>
-<h3 class="text-2xl font-semibold mb-3 text-gray-800 text-center">Privacy-Preserving Collaboration</h3>
-<p class="text-gray-600 text-center">Leveraging DLT and Federated Learning for secure, anonymized information sharing across institutions.</p>
-</div>
-<!-- Solution Card 6: Gamification of Compliance (Unique Approach) -->
-<div class="bg-white p-8 rounded-xl shadow-lg border border-teal-200 transform hover:scale-105 transition duration-300">
-<div class="text-5xl mb-4 text-teal-600 text-center">🎮</div>
-<h3 class="text-2xl font-semibold mb-3 text-gray-800 text-center">Gamified Compliance</h3>
-<p class="text-gray-600 text-center">Engaging interfaces and challenges transform tedious compliance into an intuitive, rewarding experience.</p>
-</div>
-</div>
-</div>
-</section>
+    <!-- The Problem Section -->
+    <section id="problem" class="py-24 px-6 bg-gradient-to-br from-gray-950 to-gray-900 text-gray-200 rounded-lg shadow-xl mx-auto my-20 max-w-7xl">
+        <div class="container mx-auto">
+            <h2 class="text-5xl lg:text-6xl font-bold text-center mb-20 gradient-text bg-gradient-to-r from-red-400 to-orange-500 animate-fade-in-scale-up" style="--animation-delay: 0.2s;">The Problem: Traditional Defenses Are Falling</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
+                <!-- Problem Card 1 -->
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-red-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 0.4s;">
+                    <div class="absolute inset-0 bg-red-800 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                    <div class="relative z-10 inner-content">
+                        <div class="text-7xl mb-6 text-red-400 text-center icon-bounce-on-hover">💸</div>
+                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Billions Lost Annually</h3>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">Financial crime, fraud, and illicit flows continue to drain the economy, impacting businesses and citizens alike, hindering national growth and development.</p>
+                    </div>
+                </div>
+                <!-- Problem Card 2 -->
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-yellow-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 0.6s;">
+                    <div class="absolute inset-0 bg-yellow-800 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                    <div class="relative z-10 inner-content">
+                        <div class="text-7xl mb-6 text-yellow-400 text-center icon-bounce-on-hover">⚠️</div>
+                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">FATF Greylisting Burden</h3>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">South Africa's greylisting pressures financial institutions to urgently enhance their AML/CTF capabilities, demanding robust and sophisticated solutions.</p>
+                    </div>
+                </div>
+                <!-- Problem Card 3 -->
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-purple-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 0.8s;">
+                    <div class="absolute inset-0 bg-purple-800 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                    <div class="relative z-10 inner-content">
+                        <div class="text-7xl mb-6 text-purple-400 text-center icon-bounce-on-hover">👻</div>
+                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Evolving Criminal Sophistication</h3>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">Criminal networks adapt faster than traditional rule-based systems, leading to persistent missed threats and the rapid emergence of new, complex typologies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Why Us / Differentiators Section -->
-<section id="differentiators" class="py-16 px-4 bg-slate-100 rounded-lg shadow-md mx-auto my-8 max-w-6xl">
-<div class="container mx-auto">
-<h2 class="text-4xl font-bold text-center mb-12 text-gray-800">What Makes Us Untouchable</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-<div class="order-2 md:order-1">
-<h3 class="text-3xl font-semibold mb-4 text-gray-800">Beyond the Ordinary: Our Strategic Edge</h3>
-<ul class="list-disc list-inside text-lg text-gray-700 space-y-3">
-<li>**Proactive Defense:** We anticipate threats, not just react to them, using advanced generative AI.</li>
-<li>**Explainability First:** Our AI doesn't just give answers; it explains *why*, fostering trust and facilitating regulatory compliance.</li>
-<li>**Network-Centric Intelligence:** We uncover hidden criminal networks, not just isolated suspicious transactions.</li>
-<li>**South African Context & Compliance:** Deep understanding of FICA, POPIA, and local typologies ensures hyper-relevance.</li>
-<li>**Privacy-Preserving Collaboration:** Building a DLT-powered collective intelligence network without compromising sensitive data.</li>
-<li>**Engaging User Experience:** We're making compliance intuitive and even engaging through thoughtful gamification elements.</li>
-</ul>
-</div>
-<div class="order-1 md:order-2">
-<img src="https://placehold.co/600x400/2a9d8f/ffffff?text=Strategic+Advantage" alt="Strategic Advantage Visual" class="rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
-</div>
-</div>
-</div>
-</section>
+    <!-- The Solution Section -->
+    <section id="solution" class="py-24 px-6 bg-gray-900 text-gray-200 rounded-lg shadow-xl mx-auto my-20 max-w-7xl">
+        <div class="container mx-auto text-center">
+            <h2 class="text-5xl lg:text-6xl font-bold mb-20 gradient-text bg-gradient-to-r from-blue-400 to-indigo-500 animate-fade-in-scale-up" style="--animation-delay: 0.4s;">Our Solution: Intelligent, Proactive, Connected AI</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
+                <!-- Solution Card 1: Predictive Anomaly Detection -->
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-cyan-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 0.6s;">
+                    <div class="absolute inset-0 bg-cyan-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                    <div class="relative z-10 inner-content">
+                        <div class="text-7xl mb-6 text-cyan-400 text-center icon-bounce-on-hover">🧠</div>
+                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Predictive Anomaly Detection</h3>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">Move beyond static rules. Our AI learns dynamic, complex patterns to identify suspicious activities with far greater accuracy and minimal false positives.</p>
+                    </div>
+                </div>
+                <!-- Solution Card 2: Network Intelligence (GNNs) -->
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-teal-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 0.8s;">
+                    <div class="absolute inset-0 bg-teal-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                    <div class="relative z-10 inner-content">
+                        <div class="text-7xl mb-6 text-teal-400 text-center icon-bounce-on-hover">🕸️</div>
+                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Network Intelligence (GNNs)</h3>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">Uncover hidden criminal organizations and complex illicit networks by mapping and analyzing intricate relationships between accounts, individuals, and transactions.</p>
+                    </div>
+                </div>
+                <!-- Solution Card 3: Proactive Threat Simulation (Generative AI) -->
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-purple-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.0s;">
+                    <div class="absolute inset-0 bg-purple-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                    <div class="relative z-10 inner-content">
+                        <div class="text-7xl mb-6 text-purple-400 text-center icon-bounce-on-hover">🔮</div>
+                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Proactive Threat Simulation</h3>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">Leveraging advanced Generative AI, we simulate novel money laundering and fraud typologies to build formidable defenses against future threats before they emerge.</p>
+                    </div>
+                </div>
+                <!-- Solution Card 4: Explainable AI (XAI) -->
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-emerald-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.2s;">
+                    <div class="absolute inset-0 bg-emerald-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                    <div class="relative z-10 inner-content">
+                        <div class="text-7xl mb-6 text-emerald-400 text-center icon-bounce-on-hover">💡</div>
+                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Explainable AI (XAI)</h3>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">Our AI doesn't just flag anomalies; it provides crystal-clear, human-readable explanations, empowering analysts to make faster, more informed decisions and generate fully compliant reports.</p>
+                    </div>
+                </div>
+                <!-- Solution Card 5: Privacy-Preserving Collective Intelligence (DLT) -->
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-blue-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.4s;">
+                    <div class="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                    <div class="relative z-10 inner-content">
+                        <div class="text-7xl mb-6 text-blue-400 text-center icon-bounce-on-hover">🤝</div>
+                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Privacy-Preserving Collaboration</h3>
+                        <p class="text-300 text-center leading-relaxed font-light">Pioneering a secure Distributed Ledger Technology (DLT) layer for anonymized, immutable information sharing, fostering collective intelligence across institutions without compromising sensitive data.</p>
+                    </div>
+                </div>
+                <!-- Solution Card 6: Gamification of Compliance (Unique Approach) -->
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-pink-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.6s;">
+                    <div class="absolute inset-0 bg-pink-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                    <div class="relative z-10 inner-content">
+                        <div class="text-7xl mb-6 text-pink-400 text-center icon-bounce-on-hover">🎮</div>
+                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Gamified Compliance</h3>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">Transforming tedious compliance into an intuitive and rewarding experience through engaging interfaces, challenges, and 'Anomaly Hunter' gamification elements, attracting top analytical talent.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Join Us Section (Call to Action for Co-Founders/Team) -->
-<section id="join-us" class="py-16 px-4 bg-gradient-to-br from-teal-500 to-emerald-600 text-white rounded-lg shadow-xl mx-auto my-8 max-w-6xl text-center">
-<h2 class="text-4xl font-bold mb-6">Dare to Build a Legacy? Join the Revolution.</h2>
-<p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto opacity-90">
-LocalConnect AI is more than a startup; it's a commitment to safeguarding South Africa's financial future. We're seeking **visionary co-founders and core team members** who are ready to make a profound impact with cutting-edge AI.
-</p>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-<div class="bg-white text-gray-800 p-6 rounded-lg shadow-md transform hover:scale-105 transition duration-300">
-<h3 class="text-2xl font-bold mb-2">AML/Compliance Expert</h3>
-<p class="text-gray-600">Deep FICA knowledge & regulatory foresight.</p>
-</div>
-<div class="bg-white text-gray-800 p-6 rounded-lg shadow-md transform hover:scale-105 transition duration-300">
-<h3 class="text-2xl font-bold mb-2">Data Engineer/Architect</h3>
-<p class="text-gray-600">Scalable pipelines & distributed systems.</p>
-</div>
-<div class="bg-white text-gray-800 p-6 rounded-lg shadow-md transform hover:scale-105 transition duration-300">
-<h3 class="text-2xl font-bold mb-2">AI/ML Virtuoso</h3>
-<p class="text-gray-600">GNNs, XAI, Generative AI for real-world impact.</p>
-</div>
-<div class="bg-white text-gray-800 p-6 rounded-lg shadow-md transform hover:scale-105 transition duration-300">
-<h3 class="text-2xl font-bold mb-2">Growth/Impact Evangelist</h3>
-<p class="text-gray-600">Market strategy & strategic partnerships.</p>
-</div>
-</div>
-<p class="text-lg mb-8 opacity-90">
-This is an opportunity for **significant early equity** and to redefine a nation's financial security.
-</p>
-<a href="#contact" class="bg-white text-teal-600 hover:bg-gray-100 font-bold py-4 px-10 rounded-full text-xl transition duration-300 transform hover:scale-105 shadow-xl">
-Connect with Siyabonga
-</a>
-</section>
+    <!-- Why Us / Differentiators Section -->
+    <section id="differentiators" class="py-24 px-6 bg-gradient-to-br from-gray-950 to-gray-900 text-gray-200 rounded-lg shadow-xl mx-auto my-20 max-w-7xl">
+        <div class="container mx-auto">
+            <h2 class="text-5xl lg:text-6xl font-bold text-center mb-20 gradient-text bg-gradient-to-r from-orange-400 to-red-500 animate-fade-in-scale-up" style="--animation-delay: 0.6s;">What Makes Us Untouchable</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1 flex justify-center">
+                    <ul class="list-none text-2xl text-gray-300 space-y-8 max-w-xl md:max-w-none">
+                        <li class="flex items-start animate-slide-in-left" style="--animation-delay: 0.8s;">
+                            <span class="text-cyan-400 text-4xl mr-6 flex-shrink-0"><i class="fas fa-shield-alt"></i></span>
+                            <div>
+                                <strong class="text-gray-50 text-3xl">Proactive Defense:</strong> We don't just react; our advanced Generative AI enables us to anticipate and simulate emerging threats before they materialize, building future-proof security.
+                            </div>
+                        </li>
+                        <li class="flex items-start animate-slide-in-left" style="--animation-delay: 1.0s;">
+                            <span class="text-teal-400 text-4xl mr-6 flex-shrink-0"><i class="fas fa-glasses"></i></span>
+                            <div>
+                                <strong class="text-gray-50 text-3xl">Explainability First (XAI):</strong> Our AI provides transparent, auditable reasons for its decisions, fostering deep trust and streamlining regulatory compliance for every team member.
+                            </div>
+                        </li>
+                        <li class="flex items-start animate-slide-in-left" style="--animation-delay: 1.2s;">
+                            <span class="text-purple-400 text-4xl mr-6 flex-shrink-0"><i class="fas fa-project-diagram"></i></span>
+                            <div>
+                                <strong class="text-gray-50 text-3xl">Network-Centric Intelligence:</strong> Utilizing powerful GNNs, we uncover sophisticated, hidden criminal networks that easily bypass traditional, fragmented detection methods.
+                            </div>
+                        </li>
+                        <li class="flex items-start animate-slide-in-left" style="--animation-delay: 1.4s;">
+                            <span class="text-emerald-400 text-4xl mr-6 flex-shrink-0"><i class="fas fa-map-marker-alt"></i></span>
+                            <div>
+                                <strong class="text-gray-50 text-3xl">South African Context & Compliance:</strong> Our deep understanding of FICA, POPIA, and local typologies ensures our solution is hyper-relevant, fully compliant, and uniquely effective for the region.
+                            </div>
+                        </li>
+                        <li class="flex items-start animate-slide-in-left" style="--animation-delay: 1.6s;">
+                            <span class="text-blue-400 text-4xl mr-6 flex-shrink-0"><i class="fas fa-handshake"></i></span>
+                            <div>
+                                <strong class="text-gray-50 text-3xl">Privacy-Preserving Collaboration:</strong> Our DLT-powered collective intelligence platform enables secure, anonymized information sharing among institutions, fostering unprecedented collaborative defense.
+                            </div>
+                        </li>
+                        <li class="flex items-start animate-slide-in-left" style="--animation-delay: 1.8s;">
+                            <span class="text-pink-400 text-4xl mr-6 flex-shrink-0"><i class="fas fa-gamepad"></i></span>
+                            <div>
+                                <strong class="text-gray-50 text-3xl">Engaging User Experience:</strong> We're transforming tedious compliance tasks into an intuitive and even rewarding experience, designed to attract, empower, and retain top analytical talent.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-1 md:order-2 flex justify-center relative animate-fade-in-scale-up" style="--animation-delay: 0.8s;">
+                    <!-- Dynamic visual for differentiators -->
+                    <img src="https://placehold.co/700x500/1e293b/a78bfa?text=LocalConnect+AI+Intelligence" alt="Strategic Advantage Visual" class="rounded-3xl shadow-2xl transform hover:scale-105 transition duration-300 relative z-10 animate-glow-subtle">
+                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-teal-500 opacity-10 blur-3xl rounded-full animate-glow-subtle animation-delay-2000"></div>
+                    <div class="absolute -top-10 -right-10 w-80 h-80 bg-cyan-500 opacity-10 blur-3xl rounded-full animate-glow-subtle animation-delay-4000"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Contact Section -->
-<section id="contact" class="py-16 px-4 bg-slate-800 text-white rounded-lg shadow-md mx-auto my-8 max-w-6xl">
-<div class="container mx-auto text-center">
-<h2 class="text-4xl font-bold mb-8">Let's Connect & Build</h2>
-<p class="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-Whether you're a visionary ready to join our core team, a financial institution interested in a pilot program, or a partner seeking to collaborate, we want to hear from you.
-</p>
-<div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
-<div class="text-center">
-<p class="text-xl font-semibold mb-2">General Inquiries:</p>
-<a href="mailto:info@localconnectai.com" class="text-teal-300 hover:text-teal-400 text-lg transition duration-300">info@localconnectai.com</a>
-</div>
-<div class="text-center">
-<p class="text-xl font-semibold mb-2">Connect with Siyabonga (Founder):</p>
-<a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank" class="text-teal-300 hover:text-teal-400 text-lg transition duration-300 flex items-center justify-center">
-<svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M20.447 20.452h-3.554v-5.564c0-1.353-.024-3.095-1.88-3.095-1.884 0-2.176 1.47-2.176 3.007v5.652H9.378V9.378h3.411v1.562h.048c.473-.895 1.623-1.88 3.365-1.88 3.601 0 4.267 2.378 4.267 5.464v6.088h-3.579zM5.379 6.845A1.859 1.859 0 013.519 5a1.859 1.859 0 011.86-1.845 1.859 1.859 0 011.859 1.845 1.859 1.859 0 01-1.859 1.845zM6.921 20.452H3.366V9.378h3.555v11.074z"></path>
-</svg>
-Your LinkedIn Profile
-</a>
-</div>
-</div>
-</div>
-</section>
+    <!-- Join Us Section (Call to Action for Co-Founders/Team) -->
+    <section id="join-us" class="py-24 px-6 bg-gradient-to-br from-teal-700 to-emerald-800 text-white rounded-3xl shadow-2xl mx-auto my-20 max-w-7xl text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 blur-3xl rounded-full animate-glow-subtle animation-delay-0"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-white opacity-5 blur-3xl rounded-full animate-glow-subtle animation-delay-2000"></div>
+        </div>
+        <div class="relative z-10">
+            <h2 class="text-5xl lg:text-6xl font-bold mb-10 drop-shadow-lg animate-fade-in-scale-up" style="--animation-delay: 0.8s;">Dare to Build a Legacy? Join the Revolution.</h2>
+            <p class="text-xl md:text-2xl lg:text-3xl mb-16 max-w-5xl mx-auto opacity-90 font-light animate-fade-in-scale-up" style="--animation-delay: 1.0s;">
+                LocalConnect AI is more than a startup; it's a commitment to safeguarding South Africa's financial future. We're seeking **visionary co-founders and core team members** who are ready to make a profound impact with cutting-edge AI and own their part of this monumental journey.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="bg-gray-800 text-gray-50 p-10 rounded-3xl shadow-xl border border-cyan-500 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.2s;">
+                    <div class="absolute inset-0 bg-cyan-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                    <div class="relative z-10 inner-content">
+                        <i class="fas fa-balance-scale text-6xl mb-6 text-cyan-400 icon-bounce-on-hover"></i>
+                        <h3 class="text-3xl font-bold mb-4">AML/Compliance Expert</h3>
+                        <p class="text-gray-300 leading-relaxed font-light">Deep FICA knowledge, regulatory foresight, and a passion for ethical AI integration to ensure unwavering legal and ethical standards.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-800 text-gray-50 p-10 rounded-3xl shadow-xl border border-teal-500 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.4s;">
+                    <div class="absolute inset-0 bg-teal-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                    <div class="relative z-10 inner-content">
+                        <i class="fas fa-database text-6xl mb-6 text-teal-400 icon-bounce-on-hover"></i>
+                        <h3 class="text-3xl font-bold mb-4">Data Engineer/Architect</h3>
+                        <p class="text-gray-300 leading-relaxed font-light">A master of scalable pipelines, robust data architecture, and distributed systems, ready to manage and transform petabytes of financial data.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-800 text-gray-50 p-10 rounded-3xl shadow-xl border border-purple-500 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.6s;">
+                    <div class="absolute inset-0 bg-purple-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                    <div class="relative z-10 inner-content">
+                        <i class="fas fa-brain text-6xl mb-6 text-purple-400 icon-bounce-on-hover"></i>
+                        <h3 class="text-3xl font-bold mb-4">AI/ML Virtuoso</h3>
+                        <p class="text-gray-300 leading-relaxed font-light">An expert in GNNs, XAI, and Generative AI, eager to build models that don't just predict but understand, explain, and evolve proactively.</p>
+                    </div>
+                </div>
+                <div class="bg-gray-800 text-gray-50 p-10 rounded-3xl shadow-xl border border-pink-500 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.8s;">
+                    <div class="absolute inset-0 bg-pink-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                    <div class="relative z-10 inner-content">
+                        <i class="fas fa-chart-line text-6xl mb-6 text-pink-400 icon-bounce-on-hover"></i>
+                        <h3 class="text-3xl font-bold mb-4">Growth/Impact Evangelist</h3>
+                        <p class="text-gray-300 leading-relaxed font-light">A strategic thinker, master of partnerships, and visionary communicator to drive profound market adoption and maximize societal impact.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-xl md:text-2xl mb-12 opacity-90 font-light animate-fade-in-scale-up" style="--animation-delay: 2.0s;">
+                This is a singular opportunity for **significant early equity** and to redefine a nation's financial security for generations to come.
+            </p>
+            <a href="#contact" class="bg-white text-gray-900 hover:bg-gray-200 font-bold py-6 px-16 rounded-full text-2xl transition duration-300 transform hover:scale-105 shadow-xl animate-glow-subtle animate-fade-in-scale-up" style="--animation-delay: 2.2s;">
+                Connect with Siyabonga
+            </a>
+        </div>
+    </section>
 
-<!-- Footer -->
-<footer class="bg-gray-900 text-white py-8 px-4 text-center rounded-t-lg shadow-lg">
-<div class="container mx-auto">
-<p class="mb-4">© <span id="current-year"></span> LocalConnect AI. All rights reserved. Built with passion in South Africa.</p>
-<div class="flex justify-center space-x-6">
-<a href="#" class="hover:text-teal-400 transition duration-300">Privacy Policy</a>
-<a href="#" class="hover:text-teal-400 transition duration-300">Terms of Service</a>
-</div>
-</div>
-</footer>
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 bg-gray-950 text-gray-200 rounded-lg shadow-xl mx-auto my-20 max-w-7xl">
+        <div class="container mx-auto text-center">
+            <h2 class="text-5xl lg:text-6xl font-bold mb-12 gradient-text bg-gradient-to-r from-orange-400 to-red-500 animate-fade-in-scale-up" style="--animation-delay: 0.8s;">Let's Connect & Build</h2>
+            <p class="text-xl md:text-2xl mb-16 max-w-4xl mx-auto opacity-90 font-light animate-fade-in-scale-up" style="--animation-delay: 1.0s;">
+                Whether you're a visionary ready to join our core team, a financial institution interested in a pilot program, or a strategic partner seeking to collaborate, we want to hear from you. Your expertise and passion can shape the future of financial integrity.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-stretch space-y-10 md:space-y-0 md:space-x-16">
+                <!-- Personal Contact -->
+                <div class="text-center bg-gray-800 p-10 rounded-3xl shadow-xl border border-indigo-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.2s;">
+                    <div class="absolute inset-0 bg-indigo-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                    <div class="relative z-10 inner-content">
+                        <h3 class="text-4xl font-bold mb-6 text-gray-50">Siyabonga Ayanda Khumalo (Founder)</h3>
+                        <div class="space-y-4">
+                            <p class="text-xl text-gray-300 flex items-center justify-center">
+                                <i class="fas fa-envelope text-cyan-400 text-2xl mr-4 flex-shrink-0"></i>
+                                <a href="mailto:siyabongakhumalo602@gmail.com" class="hover:text-cyan-400 transition duration-300">siyabongakhumalo602@gmail.com</a>
+                            </p>
+                            <p class="text-xl text-gray-300 flex items-center justify-center">
+                                <i class="fas fa-phone-alt text-cyan-400 text-2xl mr-4 flex-shrink-0"></i>
+                                <a href="tel:+27641356433" class="hover:text-cyan-400 transition duration-300">064 135 6433</a>
+                            </p>
+                            <p class="text-xl text-gray-300 flex items-center justify-center">
+                                <i class="fab fa-whatsapp text-cyan-400 text-2xl mr-4 flex-shrink-0"></i>
+                                <a href="https://wa.me/27641356433" target="_blank" class="hover:text-cyan-400 transition duration-300">WhatsApp Me</a>
+                            </p>
+                            <a href="https://www.linkedin.com/in/your-linkedin-profile/" target="_blank" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300 shadow-md mt-6 animate-glow-subtle">
+                                <i class="fab fa-linkedin-in mr-3"></i> My LinkedIn Profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- General Inquiries -->
+                <div class="text-center bg-gray-800 p-10 rounded-3xl shadow-xl border border-cyan-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.4s;">
+                    <div class="absolute inset-0 bg-cyan-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                    <div class="relative z-10 inner-content">
+                        <h3 class="text-4xl font-bold mb-6 text-gray-50">General Inquiries</h3>
+                        <p class="text-xl mb-8 text-gray-300 leading-relaxed">For all other queries, potential collaborations, or media inquiries, please reach out via our general contact email.</p>
+                        <a href="mailto:info@localconnectai.com" class="inline-flex items-center justify-center bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-4 px-8 rounded-full text-xl transition duration-300 shadow-md animate-glow-subtle">
+                            <i class="fas fa-paper-plane mr-3"></i> Email LocalConnect AI
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- JavaScript for Mobile Menu and Current Year -->
-<script>
-document.getElementById('mobile-menu-button').addEventListener('click', function() {
-document.getElementById('mobile-menu').classList.toggle('hidden');
-});
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-400 py-12 px-6 text-center rounded-t-3xl shadow-inner border-t border-gray-800">
+        <div class="container mx-auto">
+            <a href="#" class="text-4xl font-extrabold gradient-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-6 inline-block">LocalConnect AI</a>
+            <p class="mb-8 text-xl font-light max-w-4xl mx-auto">
+                Dedicated to building a future of unwavering financial integrity in South Africa through relentless AI innovation, secure methodologies, and a commitment to societal impact.
+            </p>
+            <div class="flex justify-center space-x-10 text-xl mb-8">
+                <a href="#" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Privacy Policy</a>
+                <a href="#" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Terms of Service</a>
+            </div>
+            <p class="text-lg">&copy; <span id="current-year"></span> LocalConnect AI. All rights reserved. Built with passion in South Africa.</p>
+        </div>
+    </footer>
 
-// Hide mobile menu when a link is clicked
-document.querySelectorAll('#mobile-menu a').forEach(item => {
-item.addEventListener('click', () => {
-document.getElementById('mobile-menu').classList.add('hidden');
-});
-});
+    <!-- JavaScript for Mobile Menu, Current Year, and Animations -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
 
-// Set current year in footer
-document.getElementById('current-year').textContent = new Date().getFullYear();
-</script>
+        // Hide mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(item => {
+            item.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Intersection Observer for fade-in effect on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                    entry.target.style.animationPlayState = 'running'; // Ensure animations play
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-fade-in-scale-up, .animate-slide-in-left, .animate-slide-in-right').forEach(element => {
+            // Apply initial hidden state through JS to prevent FOUC with animation delays
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)'; // For fade-in-scale-up/slide-in-up
+            if (element.classList.contains('animate-slide-in-left')) {
+                element.style.transform = 'translateX(-50px)';
+            } else if (element.classList.contains('animate-slide-in-right')) {
+                element.style.transform = 'translateX(50px)';
+            }
+            element.style.animationPlayState = 'paused'; // Pause animations until observed
+            observer.observe(element);
+        });
+
+        // Hero section sequential animation (not using observer for immediate impact)
+        document.querySelectorAll('.hero-element').forEach((el, index) => {
+            el.style.setProperty('--hero-delay', `${index * 0.4}s`);
+            el.classList.add('hero-element-show');
+        });
+
+        // Background Canvas Animation (Stars/Particles)
+        const canvas = document.getElementById('background-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const numParticles = 100;
+        const particleSize = 1; // Small dots
+        const particleSpeed = 0.5;
+
+        // Function to set canvas size
+        function setCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = []; // Reset particles on resize
+            initParticles();
+        }
+
+        // Particle class
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * (particleSize + 0.5) + 0.5;
+                this.speedX = (Math.random() - 0.5) * particleSpeed;
+                this.speedY = (Math.random() - 0.5) * particleSpeed;
+                this.color = `rgba(0, 255, 255, ${Math.random() * 0.8 + 0.2})`; // Cyan with varying opacity
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                // Wrap particles around screen
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            for (let i = 0; i < numParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+
+        // Initialize and start animation
+        window.addEventListener('load', () => {
+            setCanvasSize();
+            animateCanvas();
+        });
+        window.addEventListener('resize', setCanvasSize); // Adjust canvas on window resize
+
+        // Card 3D Tilt Effect JS
+        document.querySelectorAll('.card-3d-tilt').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const { left, top, width, height } = card.getBoundingClientRect();
+                const xAxis = (width / 2 - (e.clientX - left)) / 25; // Divide by a higher number for less tilt
+                const yAxis = (height / 2 - (e.clientY - top)) / 25;
+                card.style.transform = `perspective(1000px) rotateX(${yAxis}deg) rotateY(${-xAxis}deg) scale(1.03)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+            });
+        });
+
+        // Icon bounce on hover (JS controlled for smoother effect)
+        document.querySelectorAll('.icon-bounce-on-hover').forEach(icon => {
+            icon.addEventListener('mouseenter', () => {
+                icon.style.animation = 'bounce-icon 0.6s ease-in-out infinite alternate';
+            });
+            icon.addEventListener('mouseleave', () => {
+                icon.style.animation = 'none';
+            });
+        });
+    </script>
 
 </body>
 </html>
