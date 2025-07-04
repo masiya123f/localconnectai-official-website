@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,56 +10,90 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #050505; /* Even deeper dark for ultimate feel */
-            color: #E0E0E0; /* Slightly brighter text */
+            background-color: #050505;
+            /* Even deeper dark for ultimate feel */
+            color: #E0E0E0;
+            /* Slightly brighter text */
             line-height: 1.6;
-            overflow-x: hidden; /* Prevent horizontal scroll from animations */
+            overflow-x: hidden;
+            /* Prevent horizontal scroll from animations */
         }
+
         ::-webkit-scrollbar {
             width: 10px;
         }
+
         ::-webkit-scrollbar-track {
             background: #101010;
             border-radius: 5px;
         }
+
         ::-webkit-scrollbar-thumb {
-            background: #00BCD4; /* More vibrant Cyan */
+            background: #00BCD4;
+            /* More vibrant Cyan */
             border-radius: 5px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #00ACBF;
         }
 
         /* Custom Animations */
         @keyframes glow-subtle {
-            0%, 100% { box-shadow: 0 0 8px rgba(0,255,255,0.4), 0 0 15px rgba(0,255,255,0.2); }
-            50% { box-shadow: 0 0 12px rgba(0,255,255,0.6), 0 0 25px rgba(0,255,255,0.3); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 8px rgba(0, 255, 255, 0.4), 0 0 15px rgba(0, 255, 255, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 12px rgba(0, 255, 255, 0.6), 0 0 25px rgba(0, 255, 255, 0.3);
+            }
         }
+
         .animate-glow-subtle {
             animation: glow-subtle 4s infinite ease-in-out;
         }
 
         @keyframes fadeInScaleUp {
-            0% { opacity: 0; transform: scale(0.95); }
-            100% { opacity: 1; transform: scale(1); }
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
+
         .animate-fade-in-scale-up {
-            opacity: 0; /* Hidden by default */
+            opacity: 0;
+            /* Hidden by default */
             animation: fadeInScaleUp 1s ease-out forwards;
             animation-delay: var(--animation-delay, 0s);
         }
 
         @keyframes slideInRight {
-            0% { opacity: 0; transform: translateX(50px); }
-            100% { opacity: 1; transform: translateX(0); }
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
+
         .animate-slide-in-right {
             opacity: 0;
             animation: slideInRight 0.8s ease-out forwards;
@@ -66,9 +101,17 @@
         }
 
         @keyframes slideInLeft {
-            0% { opacity: 0; transform: translateX(-50px); }
-            100% { opacity: 1; transform: translateX(0); }
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
+
         .animate-slide-in-left {
             opacity: 0;
             animation: slideInLeft 0.8s ease-out forwards;
@@ -83,8 +126,10 @@
 
         /* Hero specific animation for immediate impact */
         .hero-element {
-            opacity: 0; /* Hidden by default, controlled by JS for sequential animation */
+            opacity: 0;
+            /* Hidden by default, controlled by JS for sequential animation */
         }
+
         .hero-element-show {
             animation: fadeInScaleUp 1s ease-out forwards;
             animation-delay: var(--hero-delay, 0s);
@@ -92,8 +137,8 @@
 
         /* Subtle grid pattern for backgrounds */
         .grid-pattern {
-            background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 30px 30px;
         }
 
@@ -102,74 +147,119 @@
             transform-style: preserve-3d;
             transition: all 0.3s ease-out;
         }
+
         .card-3d-tilt:hover {
             transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale(1.03);
-            box-shadow: 0 20px 40px rgba(0,255,255,0.2), 0 0 60px rgba(0,255,255,0.1);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2), 0 0 60px rgba(0, 255, 255, 0.1);
         }
+
         .card-3d-tilt .inner-content {
-            transform: translateZ(20px); /* Pushes content forward in 3D space */
+            transform: translateZ(20px);
+            /* Pushes content forward in 3D space */
         }
 
         /* Bounce animation for icons (defined here for global access) */
         @keyframes bounce-icon {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
+
         .icon-bounce-on-hover:hover {
             animation: bounce-icon 0.6s ease-in-out infinite alternate;
         }
     </style>
 </head>
+
 <body class="antialiased">
 
     <!-- Background Animation Canvas -->
     <canvas id="background-canvas" class="fixed inset-0 w-full h-full z-0 opacity-10"></canvas>
 
     <!-- Header Section -->
-    <header class="bg-gray-950 text-white shadow-xl sticky top-0 z-50 border-b border-gray-800 backdrop-blur-sm bg-opacity-80">
+    <header
+        class="bg-gray-950 text-white shadow-xl sticky top-0 z-50 border-b border-gray-800 backdrop-blur-sm bg-opacity-80">
         <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
-            <a href="#" class="text-3xl md:text-2xl lg:text-5xl font-extrabold gradient-text bg-gradient-to-r from-cyan-400 to-blue-500 tracking-tight">LocalConnect AI</a>
+            <a href="#"
+                class="text-3xl md:text-2xl lg:text-5xl font-extrabold gradient-text bg-gradient-to-r from-cyan-400 to-blue-500 tracking-tight">LocalConnect
+                AI</a>
             <!-- Mobile Menu Button (Hamburger) -->
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-md hover:bg-gray-700 transition-all duration-300">
-                <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <button id="mobile-menu-button"
+                class="md:hidden text-white focus:outline-none p-2 rounded-md hover:bg-gray-700 transition-all duration-300">
+                <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
                 </svg>
             </button>
             <!-- Desktop Navigation -->
             <ul id="main-nav" class="hidden md:flex space-x-10 text-xl font-medium">
-                <li><a href="#mission" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Our Mission</a></li>
-                <li><a href="#solution" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">The Solution</a></li>
-                <li><a href="#differentiators" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Why Us</a></li>
-                <li><a href="#join-us" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Join Us</a></li>
-                <li><a href="#contact" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Contact</a></li>
+                <li><a href="#mission"
+                        class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Our
+                        Mission</a></li>
+                <li><a href="#solution"
+                        class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">The
+                        Solution</a></li>
+                <li><a href="#differentiators"
+                        class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Why Us</a>
+                </li>
+                <li><a href="#join-us"
+                        class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Join Us</a>
+                </li>
+                <li><a href="#contact"
+                        class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Contact</a>
+                </li>
             </ul>
         </nav>
         <!-- Mobile Navigation Dropdown -->
         <div id="mobile-menu" class="md:hidden hidden bg-gray-900 pb-6 shadow-inner border-t border-gray-800">
             <ul class="flex flex-col items-center space-y-5 text-2xl py-4">
-                <li><a href="#mission" class="block py-2 px-4 hover:text-cyan-400 transition duration-300 w-full text-center">Our Mission</a></li>
-                <li><a href="#solution" class="block py-2 px-4 hover:text-cyan-400 transition duration-300 w-full text-center">The Solution</a></li>
-                <li><a href="#differentiators" class="block py-2 px-4 hover:text-cyan-400 transition duration-300 w-full text-center">Why Us</a></li>
-                <li><a href="#join-us" class="block py-2 px-4 hover:text-cyan-400 transition duration-300 w-full text-center">Join Us</a></li>
-                <li><a href="#contact" class="block py-2 px-4 hover:text-cyan-400 transition duration-300 w-full text-center">Contact</a></li>
+                <li><a href="#mission"
+                        class="block py-2 px-4 hover:text-cyan-400 transition duration-300 w-full text-center">Our
+                        Mission</a></li>
+                <li><a href="#solution"
+                        class="block py-2 px-4 hover:text-cyan-400 transition duration-300 w-full text-center">The
+                        Solution</a></li>
+                <li><a href="#differentiators"
+                        class="block py-2 px-4 hover:text-cyan-400 transition duration-300 w-full text-center">Why
+                        Us</a></li>
+                <li><a href="#join-us"
+                        class="block py-2 px-4 hover:text-cyan-400 transition duration-300 w-full text-center">Join
+                        Us</a></li>
+                <li><a href="#contact"
+                        class="block py-2 px-4 hover:text-cyan-400 transition duration-300 w-full text-center">Contact</a>
+                </li>
             </ul>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-gray-950 to-gray-900 text-white py-32 px-6 md:py-48 overflow-hidden rounded-b-3xl shadow-2xl border-b border-gray-800 z-10">
+    <section
+        class="relative bg-gradient-to-br from-gray-950 to-gray-900 text-white py-32 px-6 md:py-48 overflow-hidden rounded-b-3xl shadow-2xl border-b border-gray-800 z-10">
         <div class="container mx-auto relative z-10 text-center">
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-8 gradient-text bg-gradient-to-r from-blue-300 to-purple-400 drop-shadow-xl hero-element" style="--hero-delay: 0s;">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-8 gradient-text bg-gradient-to-r from-blue-300 to-purple-400 drop-shadow-xl hero-element"
+                style="--hero-delay: 0s;">
                 Redefining Financial Integrity.<br>Unstoppable.
             </h1>
-            <p class="text-xl md:text-3xl lg:text-4xl mb-12 max-w-5xl mx-auto opacity-90 font-light hero-element" style="--hero-delay: 0.4s;">
-                Leveraging cutting-edge AI and secure blockchain technologies to predict, prevent, and decisively combat financial crime. We are building an impenetrable defense for our nation.
+            <p class="text-xl md:text-3xl lg:text-4xl mb-12 max-w-5xl mx-auto opacity-90 font-light hero-element"
+                style="--hero-delay: 0.4s;">
+                Leveraging cutting-edge AI and secure blockchain technologies to predict, prevent, and decisively combat
+                financial crime. We are building an impenetrable defense for our nation.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-6 sm:space-y-0 sm:space-x-8 hero-element" style="--hero-delay: 0.8s;">
-                <a href="#join-us" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-5 px-14 rounded-full text-xl md:text-2xl transition duration-300 transform hover:scale-105 shadow-xl animate-glow-subtle">
+            <div class="flex flex-col sm:flex-row justify-center space-y-6 sm:space-y-0 sm:space-x-8 hero-element"
+                style="--hero-delay: 0.8s;">
+                <a href="#join-us"
+                    class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-5 px-14 rounded-full text-xl md:text-2xl transition duration-300 transform hover:scale-105 shadow-xl animate-glow-subtle">
                     Join the Mission
                 </a>
-                <a href="#contact" class="bg-transparent border-2 border-cyan-600 hover:bg-cyan-600 text-white font-bold py-5 px-14 rounded-full text-xl md:text-2xl transition duration-300 transform hover:scale-105 shadow-lg">
+                <a href="#contact"
+                    class="bg-transparent border-2 border-cyan-600 hover:bg-cyan-600 text-white font-bold py-5 px-14 rounded-full text-xl md:text-2xl transition duration-300 transform hover:scale-105 shadow-lg">
                     Learn More
                 </a>
             </div>
@@ -177,45 +267,69 @@
     </section>
 
     <!-- Our Mission Section -->
-    <section id="mission" class="py-24 px-6 bg-gray-900 text-gray-200 rounded-lg shadow-xl mx-auto my-20 max-w-7xl animate-fade-in-scale-up">
+    <section id="mission"
+        class="py-24 px-6 bg-gray-900 text-gray-200 rounded-lg shadow-xl mx-auto my-20 max-w-7xl animate-fade-in-scale-up">
         <div class="container mx-auto text-center">
-            <h2 class="text-5xl lg:text-6xl font-bold mb-12 gradient-text bg-gradient-to-r from-teal-400 to-green-500">Our Mission: A Resilient Financial Future</h2>
+            <h2 class="text-5xl lg:text-6xl font-bold mb-12 gradient-text bg-gradient-to-r from-teal-400 to-green-500">
+                Our Mission: A Resilient Financial Future</h2>
             <p class="text-xl md:text-2xl lg:text-3xl max-w-5xl mx-auto leading-relaxed font-light">
-                South Africa is under siege by escalating financial crime, costing billions and impacting our global standing. At LocalConnect AI, our unwavering mission is to fundamentally transform how financial crime is fought. We aim to move beyond reactive measures, building an intelligent, proactive, and interconnected ecosystem that safeguards our nation's financial integrity, empowers institutions, and fosters a legacy of trust and prosperity.
+                South Africa is under siege by escalating financial crime, costing billions and impacting our global
+                standing. At LocalConnect AI, our unwavering mission is to fundamentally transform how financial crime
+                is fought. We aim to move beyond reactive measures, building an intelligent, proactive, and
+                interconnected ecosystem that safeguards our nation's financial integrity, empowers institutions, and
+                fosters a legacy of trust and prosperity.
             </p>
         </div>
     </section>
 
     <!-- The Problem Section -->
-    <section id="problem" class="py-24 px-6 bg-gradient-to-br from-gray-950 to-gray-900 text-gray-200 rounded-lg shadow-xl mx-auto my-20 max-w-7xl">
+    <section id="problem"
+        class="py-24 px-6 bg-gradient-to-br from-gray-950 to-gray-900 text-gray-200 rounded-lg shadow-xl mx-auto my-20 max-w-7xl">
         <div class="container mx-auto">
-            <h2 class="text-5xl lg:text-6xl font-bold text-center mb-20 gradient-text bg-gradient-to-r from-red-400 to-orange-500 animate-fade-in-scale-up" style="--animation-delay: 0.2s;">The Problem: Traditional Defenses Are Falling</h2>
+            <h2 class="text-5xl lg:text-6xl font-bold text-center mb-20 gradient-text bg-gradient-to-r from-red-400 to-orange-500 animate-fade-in-scale-up"
+                style="--animation-delay: 0.2s;">The Problem: Traditional Defenses Are Falling</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
                 <!-- Problem Card 1 -->
-                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-red-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 0.4s;">
-                    <div class="absolute inset-0 bg-red-800 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-red-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up"
+                    style="--animation-delay: 0.4s;">
+                    <div
+                        class="absolute inset-0 bg-red-800 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect">
+                    </div>
                     <div class="relative z-10 inner-content">
                         <div class="text-7xl mb-6 text-red-400 text-center icon-bounce-on-hover">💸</div>
                         <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Billions Lost Annually</h3>
-                        <p class="text-gray-300 text-center leading-relaxed font-light">Financial crime, fraud, and illicit flows continue to drain the economy, impacting businesses and citizens alike, hindering national growth and development.</p>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">Financial crime, fraud, and
+                            illicit flows continue to drain the economy, impacting businesses and citizens alike,
+                            hindering national growth and development.</p>
                     </div>
                 </div>
                 <!-- Problem Card 2 -->
-                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-yellow-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 0.6s;">
-                    <div class="absolute inset-0 bg-yellow-800 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-yellow-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up"
+                    style="--animation-delay: 0.6s;">
+                    <div
+                        class="absolute inset-0 bg-yellow-800 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect">
+                    </div>
                     <div class="relative z-10 inner-content">
                         <div class="text-7xl mb-6 text-yellow-400 text-center icon-bounce-on-hover">⚠️</div>
                         <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">FATF Greylisting Burden</h3>
-                        <p class="text-gray-300 text-center leading-relaxed font-light">South Africa's greylisting pressures financial institutions to urgently enhance their AML/CTF capabilities, demanding robust and sophisticated solutions.</p>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">South Africa's greylisting
+                            pressures financial institutions to urgently enhance their AML/CTF capabilities, demanding
+                            robust and sophisticated solutions.</p>
                     </div>
                 </div>
                 <!-- Problem Card 3 -->
-                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-purple-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 0.8s;">
-                    <div class="absolute inset-0 bg-purple-800 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-purple-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up"
+                    style="--animation-delay: 0.8s;">
+                    <div
+                        class="absolute inset-0 bg-purple-800 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect">
+                    </div>
                     <div class="relative z-10 inner-content">
                         <div class="text-7xl mb-6 text-purple-400 text-center icon-bounce-on-hover">👻</div>
-                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Evolving Criminal Sophistication</h3>
-                        <p class="text-gray-300 text-center leading-relaxed font-light">Criminal networks adapt faster than traditional rule-based systems, leading to persistent missed threats and the rapid emergence of new, complex typologies.</p>
+                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Evolving Criminal
+                            Sophistication</h3>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">Criminal networks adapt faster
+                            than traditional rule-based systems, leading to persistent missed threats and the rapid
+                            emergence of new, complex typologies.</p>
                     </div>
                 </div>
             </div>
@@ -225,210 +339,286 @@
     <!-- The Solution Section -->
     <section id="solution" class="py-24 px-6 bg-gray-900 text-gray-200 rounded-lg shadow-xl mx-auto my-20 max-w-7xl">
         <div class="container mx-auto text-center">
-            <h2 class="text-5xl lg:text-6xl font-bold mb-20 gradient-text bg-gradient-to-r from-blue-400 to-indigo-500 animate-fade-in-scale-up" style="--animation-delay: 0.4s;">Our Solution: Intelligent, Proactive, Connected AI</h2>
+            <h2 class="text-5xl lg:text-6xl font-bold mb-20 gradient-text bg-gradient-to-r from-blue-400 to-indigo-500 animate-fade-in-scale-up"
+                style="--animation-delay: 0.4s;">Our Solution: Intelligent, Proactive, Connected AI</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
                 <!-- Solution Card 1: Predictive Anomaly Detection -->
-                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-cyan-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 0.6s;">
-                    <div class="absolute inset-0 bg-cyan-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-cyan-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up"
+                    style="--animation-delay: 0.6s;">
+                    <div
+                        class="absolute inset-0 bg-cyan-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect">
+                    </div>
                     <div class="relative z-10 inner-content">
                         <div class="text-7xl mb-6 text-cyan-400 text-center icon-bounce-on-hover">🧠</div>
-                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Predictive Anomaly Detection</h3>
-                        <p class="text-gray-300 text-center leading-relaxed font-light">Move beyond static rules. Our AI learns dynamic, complex patterns to identify suspicious activities with far greater accuracy and minimal false positives.</p>
+                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Predictive Anomaly Detection
+                        </h3>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">Move beyond static rules. Our AI
+                            learns dynamic, complex patterns to identify suspicious activities with far greater accuracy
+                            and minimal false positives.</p>
                     </div>
                 </div>
                 <!-- Solution Card 2: Network Intelligence (GNNs) -->
-                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-teal-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 0.8s;">
-                    <div class="absolute inset-0 bg-teal-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-teal-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up"
+                    style="--animation-delay: 0.8s;">
+                    <div
+                        class="absolute inset-0 bg-teal-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect">
+                    </div>
                     <div class="relative z-10 inner-content">
                         <div class="text-7xl mb-6 text-teal-400 text-center icon-bounce-on-hover">🕸️</div>
-                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Network Intelligence (GNNs)</h3>
-                        <p class="text-gray-300 text-center leading-relaxed font-light">Uncover hidden criminal organizations and complex illicit networks by mapping and analyzing intricate relationships between accounts, individuals, and transactions.</p>
+                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Network Intelligence (GNNs)
+                        </h3>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">Uncover hidden criminal
+                            organizations and complex illicit networks by mapping and analyzing intricate relationships
+                            between accounts, individuals, and transactions.</p>
                     </div>
                 </div>
                 <!-- Solution Card 3: Proactive Threat Simulation (Generative AI) -->
-                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-purple-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.0s;">
-                    <div class="absolute inset-0 bg-purple-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-purple-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up"
+                    style="--animation-delay: 1.0s;">
+                    <div
+                        class="absolute inset-0 bg-purple-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect">
+                    </div>
                     <div class="relative z-10 inner-content">
                         <div class="text-7xl mb-6 text-purple-400 text-center icon-bounce-on-hover">🔮</div>
-                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Proactive Threat Simulation</h3>
-                        <p class="text-gray-300 text-center leading-relaxed font-light">Leveraging advanced Generative AI, we simulate novel money laundering and fraud typologies to build formidable defenses against future threats before they emerge.</p>
+                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Proactive Threat Simulation
+                        </h3>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">Leveraging advanced Generative
+                            AI, we simulate novel money laundering and fraud typologies to build formidable defenses
+                            against future threats before they emerge.</p>
                     </div>
                 </div>
                 <!-- Solution Card 4: Explainable AI (XAI) -->
-                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-emerald-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.2s;">
-                    <div class="absolute inset-0 bg-emerald-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-emerald-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up"
+                    style="--animation-delay: 1.2s;">
+                    <div
+                        class="absolute inset-0 bg-emerald-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect">
+                    </div>
                     <div class="relative z-10 inner-content">
                         <div class="text-7xl mb-6 text-emerald-400 text-center icon-bounce-on-hover">💡</div>
                         <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Explainable AI (XAI)</h3>
-                        <p class="text-gray-300 text-center leading-relaxed font-light">Our AI doesn't just flag anomalies; it provides crystal-clear, human-readable explanations, empowering analysts to make faster, more informed decisions and generate fully compliant reports.</p>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">Our AI doesn't just flag
+                            anomalies; it provides crystal-clear, human-readable explanations, empowering analysts to
+                            make faster, more informed decisions and generate fully compliant reports.</p>
                     </div>
                 </div>
                 <!-- Solution Card 5: Privacy-Preserving Collective Intelligence (DLT) -->
-                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-blue-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.4s;">
-                    <div class="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-blue-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up"
+                    style="--animation-delay: 1.4s;">
+                    <div
+                        class="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect">
+                    </div>
                     <div class="relative z-10 inner-content">
                         <div class="text-7xl mb-6 text-blue-400 text-center icon-bounce-on-hover">🤝</div>
-                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Privacy-Preserving Collaboration</h3>
-                        <p class="text-300 text-center leading-relaxed font-light">Pioneering a secure Distributed Ledger Technology (DLT) layer for anonymized, immutable information sharing, fostering collective intelligence across institutions without compromising sensitive data.</p>
+                        <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Privacy-Preserving
+                            Collaboration</h3>
+                        <p class="text-300 text-center leading-relaxed font-light">Pioneering a secure Distributed
+                            Ledger Technology (DLT) layer for anonymized, immutable information sharing, fostering
+                            collective intelligence across institutions without compromising sensitive data.</p>
                     </div>
                 </div>
                 <!-- Solution Card 6: Gamification of Compliance (Unique Approach) -->
-                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-pink-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.6s;">
-                    <div class="absolute inset-0 bg-pink-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                <div class="bg-gray-800 p-10 rounded-3xl shadow-xl border border-pink-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up"
+                    style="--animation-delay: 1.6s;">
+                    <div
+                        class="absolute inset-0 bg-pink-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect">
+                    </div>
                     <div class="relative z-10 inner-content">
                         <div class="text-7xl mb-6 text-pink-400 text-center icon-bounce-on-hover">🎮</div>
                         <h3 class="text-3xl font-semibold mb-4 text-gray-50 text-center">Gamified Compliance</h3>
-                        <p class="text-gray-300 text-center leading-relaxed font-light">Transforming tedious compliance into an intuitive and rewarding experience through engaging interfaces, challenges, and 'Anomaly Hunter' gamification elements, attracting top analytical talent.</p>
+                        <p class="text-gray-300 text-center leading-relaxed font-light">Transforming tedious compliance
+                            into an intuitive and rewarding experience through engaging interfaces, challenges, and
+                            'Anomaly Hunter' gamification elements, attracting top analytical talent.</p>
                     </div>
                 </div>
             </div>
         </div>
-       <div class="mt-20 text-center">
-        <h3 class="text-2xl sm:text-3xl font-semibold mb-6 text-white">Business Analytics Dashboard</h3>
-        <img src="images/dash.jpg" alt="Business Analytics Dashboard" class="w-full max-w-3xl mx-auto rounded-2xl shadow-2xl object-cover" />
-    </div>
+        <div class="mt-20 text-center">
+            <h3 class="text-2xl sm:text-3xl font-semibold mb-6 text-white">Business Analytics Dashboard</h3>
+            <img src="images/dash.jpg" alt="Business Analytics Dashboard"
+                class="w-full max-w-3xl mx-auto rounded-2xl shadow-2xl object-cover" />
+        </div>
     </section>
 
 
     <!-- Why Us / Differentiators Section -->
-    <section id="differentiators" class="py-20 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-gray-950 to-gray-900 text-gray-200 rounded-3xl shadow-2xl mx-auto my-24 max-w-7xl">
+    <section id="differentiators"
+        class="py-20 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-gray-950 to-gray-900 text-gray-200 rounded-3xl shadow-2xl mx-auto my-24 max-w-7xl">
         <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent animate-fade-in-scale-up" style="--animation-delay: 0.6s;">
-            What Makes Us Untouchable
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent animate-fade-in-scale-up"
+                style="--animation-delay: 0.6s;">
+                What Makes Us Untouchable
             </h2>
         </div>
 
         <div class="flex justify-center items-center mb-16 animate-fade-in-scale-up" style="--animation-delay: 0.8s;">
-            <div class="relative w-full max-w-5xl h-32 sm:h-36 md:h-40 rounded-2xl overflow-hidden hover:shadow-[0_0_25px_5px_rgba(167,139,250,0.7)] transform hover:scale-105 transition duration-300 z-10 bg-[#1e293b] flex items-center justify-center px-6 sm:px-10">
+            <div
+                class="relative w-full max-w-5xl h-32 sm:h-36 md:h-40 rounded-2xl overflow-hidden hover:shadow-[0_0_25px_5px_rgba(167,139,250,0.7)] transform hover:scale-105 transition duration-300 z-10 bg-[#1e293b] flex items-center justify-center px-6 sm:px-10">
                 <span class="text-2xl sm:text-3xl md:text-4xl font-bold text-purple-300 text-center leading-snug">
-                LocalConnect AI Intelligence
+                    LocalConnect AI Intelligence
                 </span>
             </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg animate-slide-in-left" style="--animation-delay: 0.8s;">
-            <div class="flex items-start space-x-4">
-                <i class="fas fa-shield-alt text-cyan-400 text-4xl"></i>
-                <div>
-                <h3 class="text-2xl font-bold text-white mb-2">Proactive Defense</h3>
-                <p class="text-gray-300 text-base font-light leading-relaxed">
-                    We don't just react; our advanced Generative AI enables us to anticipate and simulate emerging threats before they materialize, building future-proof security.
-                </p>
+                <div class="flex items-start space-x-4">
+                    <i class="fas fa-shield-alt text-cyan-400 text-4xl"></i>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Proactive Defense</h3>
+                        <p class="text-gray-300 text-base font-light leading-relaxed">
+                            We don't just react; our advanced Generative AI enables us to anticipate and simulate
+                            emerging threats before they materialize, building future-proof security.
+                        </p>
+                    </div>
                 </div>
-            </div>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg animate-slide-in-left" style="--animation-delay: 1.0s;">
-            <div class="flex items-start space-x-4">
-                <i class="fas fa-glasses text-teal-400 text-4xl"></i>
-                <div>
-                <h3 class="text-2xl font-bold text-white mb-2">Explainability First (XAI)</h3>
-                <p class="text-gray-300 text-base font-light leading-relaxed">
-                    Our AI provides transparent, auditable reasons for its decisions, fostering deep trust and streamlining regulatory compliance for every team member.
-                </p>
+                <div class="flex items-start space-x-4">
+                    <i class="fas fa-glasses text-teal-400 text-4xl"></i>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Explainability First (XAI)</h3>
+                        <p class="text-gray-300 text-base font-light leading-relaxed">
+                            Our AI provides transparent, auditable reasons for its decisions, fostering deep trust and
+                            streamlining regulatory compliance for every team member.
+                        </p>
+                    </div>
                 </div>
-            </div>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg animate-slide-in-left" style="--animation-delay: 1.2s;">
-            <div class="flex items-start space-x-4">
-                <i class="fas fa-project-diagram text-purple-400 text-4xl"></i>
-                <div>
-                <h3 class="text-2xl font-bold text-white mb-2">Network-Centric Intelligence</h3>
-                <p class="text-gray-300 text-base font-light leading-relaxed">
-                    Utilizing powerful GNNs, we uncover sophisticated, hidden criminal networks that easily bypass traditional, fragmented detection methods.
-                </p>
+                <div class="flex items-start space-x-4">
+                    <i class="fas fa-project-diagram text-purple-400 text-4xl"></i>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Network-Centric Intelligence</h3>
+                        <p class="text-gray-300 text-base font-light leading-relaxed">
+                            Utilizing powerful GNNs, we uncover sophisticated, hidden criminal networks that easily
+                            bypass traditional, fragmented detection methods.
+                        </p>
+                    </div>
                 </div>
-            </div>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg animate-slide-in-left" style="--animation-delay: 1.4s;">
-            <div class="flex items-start space-x-4">
-                <i class="fas fa-map-marker-alt text-emerald-400 text-4xl"></i>
-                <div>
-                <h3 class="text-2xl font-bold text-white mb-2">South African Context & Compliance</h3>
-                <p class="text-gray-300 text-base font-light leading-relaxed">
-                    Our deep understanding of FICA, POPIA, and local typologies ensures our solution is hyper-relevant, fully compliant, and uniquely effective for the region.
-                </p>
+                <div class="flex items-start space-x-4">
+                    <i class="fas fa-map-marker-alt text-emerald-400 text-4xl"></i>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2">South African Context & Compliance</h3>
+                        <p class="text-gray-300 text-base font-light leading-relaxed">
+                            Our deep understanding of FICA, POPIA, and local typologies ensures our solution is
+                            hyper-relevant, fully compliant, and uniquely effective for the region.
+                        </p>
+                    </div>
                 </div>
-            </div>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg animate-slide-in-left" style="--animation-delay: 1.6s;">
-            <div class="flex items-start space-x-4">
-                <i class="fas fa-handshake text-blue-400 text-4xl"></i>
-                <div>
-                <h3 class="text-2xl font-bold text-white mb-2">Privacy-Preserving Collaboration</h3>
-                <p class="text-gray-300 text-base font-light leading-relaxed">
-                    Our DLT-powered collective intelligence platform enables secure, anonymized information sharing among institutions, fostering unprecedented collaborative defense.
-                </p>
+                <div class="flex items-start space-x-4">
+                    <i class="fas fa-handshake text-blue-400 text-4xl"></i>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Privacy-Preserving Collaboration</h3>
+                        <p class="text-gray-300 text-base font-light leading-relaxed">
+                            Our DLT-powered collective intelligence platform enables secure, anonymized information
+                            sharing among institutions, fostering unprecedented collaborative defense.
+                        </p>
+                    </div>
                 </div>
-            </div>
             </div>
 
             <div class="bg-gray-800 p-6 rounded-2xl shadow-lg animate-slide-in-left" style="--animation-delay: 1.8s;">
-            <div class="flex items-start space-x-4">
-                <i class="fas fa-gamepad text-pink-400 text-4xl"></i>
-                <div>
-                <h3 class="text-2xl font-bold text-white mb-2">Engaging User Experience</h3>
-                <p class="text-gray-300 text-base font-light leading-relaxed">
-                    We're transforming tedious compliance tasks into an intuitive and even rewarding experience, designed to attract, empower, and retain top analytical talent.
-                </p>
+                <div class="flex items-start space-x-4">
+                    <i class="fas fa-gamepad text-pink-400 text-4xl"></i>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Engaging User Experience</h3>
+                        <p class="text-gray-300 text-base font-light leading-relaxed">
+                            We're transforming tedious compliance tasks into an intuitive and even rewarding experience,
+                            designed to attract, empower, and retain top analytical talent.
+                        </p>
+                    </div>
                 </div>
             </div>
-            </div>
         </div>
-        </section>
+    </section>
 
 
     <!-- Join Us Section (Call to Action for Co-Founders/Team) -->
-    <section id="join-us" class="py-24 px-6 bg-gradient-to-br from-teal-700 to-emerald-800 text-white rounded-3xl shadow-2xl mx-auto my-20 max-w-7xl text-center relative overflow-hidden">
+    <section id="join-us"
+        class="py-24 px-6 bg-gradient-to-br from-teal-700 to-emerald-800 text-white rounded-3xl shadow-2xl mx-auto my-20 max-w-7xl text-center relative overflow-hidden">
         <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 blur-3xl rounded-full animate-glow-subtle animation-delay-0"></div>
-            <div class="absolute bottom-0 left-0 w-80 h-80 bg-white opacity-5 blur-3xl rounded-full animate-glow-subtle animation-delay-2000"></div>
+            <div
+                class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 blur-3xl rounded-full animate-glow-subtle animation-delay-0">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-80 h-80 bg-white opacity-5 blur-3xl rounded-full animate-glow-subtle animation-delay-2000">
+            </div>
         </div>
         <div class="relative z-10">
-            <h2 class="text-5xl lg:text-6xl font-bold mb-10 drop-shadow-lg animate-fade-in-scale-up" style="--animation-delay: 0.8s;">Dare to Build a Legacy? Join the Revolution.</h2>
-            <p class="text-xl md:text-2xl lg:text-3xl mb-16 max-w-5xl mx-auto opacity-90 font-light animate-fade-in-scale-up" style="--animation-delay: 1.0s;">
-                LocalConnect AI is more than a startup; it's a commitment to safeguarding South Africa's financial future. We're seeking visionary co-founders and core team members who are ready to make a profound impact with cutting-edge AI and own their part of this monumental journey.
+            <h2 class="text-5xl lg:text-6xl font-bold mb-10 drop-shadow-lg animate-fade-in-scale-up"
+                style="--animation-delay: 0.8s;">Dare to Build a Legacy? Join the Revolution.</h2>
+            <p class="text-xl md:text-2xl lg:text-3xl mb-16 max-w-5xl mx-auto opacity-90 font-light animate-fade-in-scale-up"
+                style="--animation-delay: 1.0s;">
+                LocalConnect AI is more than a startup; it's a commitment to safeguarding South Africa's financial
+                future. We're seeking visionary co-founders and core team members who are ready to make a profound
+                impact with cutting-edge AI and own their part of this monumental journey.
             </p>
             <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 md:gap-12 mb-16">
-                <div class="bg-gray-800 text-gray-50 p-10 rounded-3xl shadow-xl border border-cyan-500 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.2s;">
-                    <div class="absolute inset-0 bg-cyan-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                <div class="bg-gray-800 text-gray-50 p-10 rounded-3xl shadow-xl border border-cyan-500 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up"
+                    style="--animation-delay: 1.2s;">
+                    <div
+                        class="absolute inset-0 bg-cyan-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect">
+                    </div>
                     <div class="relative z-10 inner-content">
                         <i class="fas fa-balance-scale text-6xl mb-6 text-cyan-400 icon-bounce-on-hover"></i>
                         <h3 class="text-2xl font-bold mb-4">AML/Compliance Expert</h3>
-                        <p class="text-gray-300 leading-relaxed font-light">Deep FICA knowledge, regulatory foresight, and a passion for ethical AI integration to ensure unwavering legal and ethical standards.</p>
+                        <p class="text-gray-300 leading-relaxed font-light">Deep FICA knowledge, regulatory foresight,
+                            and a passion for ethical AI integration to ensure unwavering legal and ethical standards.
+                        </p>
                     </div>
                 </div>
-                <div class="bg-gray-800 text-gray-50 p-10 rounded-3xl shadow-xl border border-teal-500 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.4s;">
-                    <div class="absolute inset-0 bg-teal-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                <div class="bg-gray-800 text-gray-50 p-10 rounded-3xl shadow-xl border border-teal-500 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up"
+                    style="--animation-delay: 1.4s;">
+                    <div
+                        class="absolute inset-0 bg-teal-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect">
+                    </div>
                     <div class="relative z-10 inner-content">
                         <i class="fas fa-database text-6xl mb-6 text-teal-400 icon-bounce-on-hover"></i>
                         <h3 class="text-2xl font-bold mb-4">Data Engineer/Architect</h3>
-                        <p class="text-gray-300 leading-relaxed font-light">A master of scalable pipelines, robust data architecture, and distributed systems, ready to manage and transform petabytes of financial data.</p>
+                        <p class="text-gray-300 leading-relaxed font-light">A master of scalable pipelines, robust data
+                            architecture, and distributed systems, ready to manage and transform petabytes of financial
+                            data.</p>
                     </div>
                 </div>
-                <div class="bg-gray-800 text-gray-50 p-10 rounded-3xl shadow-xl border border-purple-500 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.6s;">
-                    <div class="absolute inset-0 bg-purple-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                <div class="bg-gray-800 text-gray-50 p-10 rounded-3xl shadow-xl border border-purple-500 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up"
+                    style="--animation-delay: 1.6s;">
+                    <div
+                        class="absolute inset-0 bg-purple-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect">
+                    </div>
                     <div class="relative z-10 inner-content">
                         <i class="fas fa-brain text-6xl mb-6 text-purple-400 icon-bounce-on-hover"></i>
                         <h3 class="text-2xl font-bold mb-4">AI/ML Virtuoso</h3>
-                        <p class="text-gray-300 leading-relaxed font-light">An expert in GNNs, XAI, and Generative AI, eager to build models that don't just predict but understand, explain, and evolve proactively.</p>
+                        <p class="text-gray-300 leading-relaxed font-light">An expert in GNNs, XAI, and Generative AI,
+                            eager to build models that don't just predict but understand, explain, and evolve
+                            proactively.</p>
                     </div>
                 </div>
-                <div class="bg-gray-800 text-gray-50 p-10 rounded-3xl shadow-xl border border-pink-500 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.8s;">
-                    <div class="absolute inset-0 bg-pink-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                <div class="bg-gray-800 text-gray-50 p-10 rounded-3xl shadow-xl border border-pink-500 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up"
+                    style="--animation-delay: 1.8s;">
+                    <div
+                        class="absolute inset-0 bg-pink-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect">
+                    </div>
                     <div class="relative z-10 inner-content">
                         <i class="fas fa-chart-line text-6xl mb-6 text-pink-400 icon-bounce-on-hover"></i>
                         <h3 class="text-2xl font-bold mb-4">Growth/Impact Evangelist</h3>
-                        <p class="text-gray-300 leading-relaxed font-light">A strategic thinker, master of partnerships, and visionary communicator to drive profound market adoption and maximize societal impact.</p>
+                        <p class="text-gray-300 leading-relaxed font-light">A strategic thinker, master of partnerships,
+                            and visionary communicator to drive profound market adoption and maximize societal impact.
+                        </p>
                     </div>
                 </div>
             </div>
-            <p class="text-xl md:text-2xl mb-12 opacity-90 font-light animate-fade-in-scale-up" style="--animation-delay: 2.0s;">
-                This is a singular opportunity for significant early equity and to redefine a nation's financial security for generations to come.
+            <p class="text-xl md:text-2xl mb-12 opacity-90 font-light animate-fade-in-scale-up"
+                style="--animation-delay: 2.0s;">
+                This is a singular opportunity for significant early equity and to redefine a nation's financial
+                security for generations to come.
             </p>
             <a href="#contact"
                 class="bg-white text-gray-900 hover:bg-gray-200 font-bold py-4 px-8 sm:py-6 sm:px-16 rounded-full text-xl sm:text-2xl transition duration-300 transform hover:scale-105 shadow-xl animate-glow-subtle animate-fade-in-scale-up"
@@ -441,42 +631,59 @@
     <!-- Contact Section -->
     <section id="contact" class="py-24 px-6 bg-gray-950 text-gray-200 rounded-lg shadow-xl mx-auto my-20 max-w-7xl">
         <div class="container mx-auto text-center">
-            <h2 class="text-5xl lg:text-6xl font-bold mb-12 gradient-text bg-gradient-to-r from-orange-400 to-red-500 animate-fade-in-scale-up" style="--animation-delay: 0.8s;">Let's Connect & Build</h2>
-            <p class="text-xl md:text-2xl mb-16 max-w-4xl mx-auto opacity-90 font-light animate-fade-in-scale-up" style="--animation-delay: 1.0s;">
-                Whether you're a visionary ready to join our core team, a financial institution interested in a pilot program, or a strategic partner seeking to collaborate, we want to hear from you. Your expertise and passion can shape the future of financial integrity.
+            <h2 class="text-5xl lg:text-6xl font-bold mb-12 gradient-text bg-gradient-to-r from-orange-400 to-red-500 animate-fade-in-scale-up"
+                style="--animation-delay: 0.8s;">Let's Connect & Build</h2>
+            <p class="text-xl md:text-2xl mb-16 max-w-4xl mx-auto opacity-90 font-light animate-fade-in-scale-up"
+                style="--animation-delay: 1.0s;">
+                Whether you're a visionary ready to join our core team, a financial institution interested in a pilot
+                program, or a strategic partner seeking to collaborate, we want to hear from you. Your expertise and
+                passion can shape the future of financial integrity.
             </p>
             <div class="flex flex-col md:flex-row justify-center items-stretch space-y-10 md:space-y-0 md:space-x-16">
                 <!-- Personal Contact -->
-                <div class="text-center bg-gray-800 p-10 rounded-3xl shadow-xl border border-indigo-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.2s;">
-                    <div class="absolute inset-0 bg-indigo-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                <div class="text-center bg-gray-800 p-10 rounded-3xl shadow-xl border border-indigo-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up"
+                    style="--animation-delay: 1.2s;">
+                    <div
+                        class="absolute inset-0 bg-indigo-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect">
+                    </div>
                     <div class="relative z-10 inner-content">
                         <h3 class="text-4xl font-bold mb-6 text-gray-50">Siyabonga Ayanda Khumalo (Founder)</h3>
                         <div class="space-y-4">
                             <p class="text-xl text-gray-300 flex items-center justify-center">
                                 <i class="fas fa-envelope text-cyan-400 text-2xl mr-4 flex-shrink-0"></i>
-                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=siyabongakhumalo602@gmail.com" target="_blank" class="hover:text-cyan-400 transition duration-300">siyabongakhumalo602@gmail.com</a>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=siyabongakhumalo602@gmail.com"
+                                    target="_blank"
+                                    class="hover:text-cyan-400 transition duration-300">siyabongakhumalo602@gmail.com</a>
                             </p>
                             <p class="text-xl text-gray-300 flex items-center justify-center">
                                 <i class="fas fa-phone-alt text-cyan-400 text-2xl mr-4 flex-shrink-0"></i>
-                                <a href="tel:+27641356433" class="hover:text-cyan-400 transition duration-300">064 135 6433</a>
+                                <a href="tel:+27641356433" class="hover:text-cyan-400 transition duration-300">064 135
+                                    6433</a>
                             </p>
                             <p class="text-xl text-gray-300 flex items-center justify-center">
                                 <i class="fab fa-whatsapp text-cyan-400 text-2xl mr-4 flex-shrink-0"></i>
-                                <a href="https://wa.me/27641356433" target="_blank" class="hover:text-cyan-400 transition duration-300">WhatsApp Me</a>
+                                <a href="https://wa.me/27641356433" target="_blank"
+                                    class="hover:text-cyan-400 transition duration-300">WhatsApp Me</a>
                             </p>
-                            <a href="https://www.linkedin.com/in/siyabonga-khumalo-7b9a25254" target="_blank" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300 shadow-md mt-6 animate-glow-subtle">
+                            <a href="https://www.linkedin.com/in/siyabonga-khumalo-7b9a25254" target="_blank"
+                                class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300 shadow-md mt-6 animate-glow-subtle">
                                 <i class="fab fa-linkedin-in mr-3"></i> Company Linkedin
                             </a>
                         </div>
                     </div>
                 </div>
                 <!-- General Inquiries -->
-                <div class="text-center bg-gray-800 p-10 rounded-3xl shadow-xl border border-cyan-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up" style="--animation-delay: 1.4s;">
-                    <div class="absolute inset-0 bg-cyan-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect"></div>
+                <div class="text-center bg-gray-800 p-10 rounded-3xl shadow-xl border border-cyan-700 relative overflow-hidden group card-3d-tilt grid-pattern animate-fade-in-scale-up"
+                    style="--animation-delay: 1.4s;">
+                    <div
+                        class="absolute inset-0 bg-cyan-900 opacity-0 group-hover:opacity-10 transition duration-300 group-hover-effect">
+                    </div>
                     <div class="relative z-10 inner-content">
                         <h3 class="text-4xl font-bold mb-6 text-gray-50">General Inquiries</h3>
-                        <p class="text-xl mb-8 text-gray-300 leading-relaxed">For all other queries, potential collaborations, or media inquiries, please reach out via our general contact email.</p>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@localconnectai.com" target="_blank" class="inline-flex items-center justify-center bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-4 px-8 rounded-full text-xl transition duration-300 shadow-md animate-glow-subtle">
+                        <p class="text-xl mb-8 text-gray-300 leading-relaxed">For all other queries, potential
+                            collaborations, or media inquiries, please reach out via our general contact email.</p>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@localconnectai.com" target="_blank"
+                            class="inline-flex items-center justify-center bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-4 px-8 rounded-full text-xl transition duration-300 shadow-md animate-glow-subtle">
                             <i class="fas fa-paper-plane mr-3"></i> Email LocalConnect AI
                         </a>
                     </div>
@@ -484,38 +691,54 @@
             </div>
         </div>
     </section>
-
+<df-messenger
+  intent="WELCOME"
+  chat-title="LocalConnectAI-Bot"
+  agent-id="d6b5a482-47b0-4b97-bec1-9398eabcca07"
+  language-code="en"
+></df-messenger>    
     <!-- Footer -->
-    <footer class="bg-gray-950 text-gray-400 py-12 px-6 text-center rounded-t-3xl shadow-inner border-t border-gray-800">
+    <footer
+        class="bg-gray-950 text-gray-400 py-12 px-6 text-center rounded-t-3xl shadow-inner border-t border-gray-800">
         <div class="container mx-auto">
-            <a href="#" class="text-4xl font-extrabold gradient-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-6 inline-block">LocalConnect AI</a>
+            <a href="#"
+                class="text-4xl font-extrabold gradient-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-6 inline-block">LocalConnect
+                AI</a>
             <p class="mb-8 text-xl font-light max-w-4xl mx-auto">
-            Dedicated to building a future of unwavering financial integrity in South Africa through relentless AI innovation, secure methodologies, and a commitment to societal impact.
+                Dedicated to building a future of unwavering financial integrity in South Africa through relentless AI
+                innovation, secure methodologies, and a commitment to societal impact.
             </p>
             <div class="flex justify-center space-x-10 text-xl mb-8">
-            <a href="#" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Privacy Policy</a>
-            <a href="#" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Terms of Service</a>
+                <a href="#" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Privacy
+                    Policy</a>
+                <a href="#" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-0.5">Terms
+                    of Service</a>
             </div>
             <div class="flex justify-center space-x-12 mb-8 text-3xl text-gray-400">
-            <a href="#" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-1" aria-label="Twitter">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/localconnect-ai/" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-1" aria-label="LinkedIn">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="#" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-1" aria-label="Telegram">
-                <i class="fab fa-telegram-plane"></i>
-            </a>
+                <a href="#" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-1"
+                    aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/localconnect-ai/"
+                    class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-1"
+                    aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="hover:text-cyan-400 transition duration-300 transform hover:-translate-y-1"
+                    aria-label="Telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
             </div>
-            <p class="text-lg">&copy; <span id="current-year"></span> LocalConnect AI. All rights reserved. Built with passion in South Africa.</p>
+            <p class="text-lg">&copy; <span id="current-year"></span> LocalConnect AI. All rights reserved. Built with
+                passion in South Africa.</p>
         </div>
     </footer>
-  
+
 
     <!-- JavaScript for Mobile Menu, Current Year, and Animations -->
     <script>
         // Mobile Menu Toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
@@ -655,13 +878,17 @@
             });
         });
     </script>
-    <a href="https://wa.me/14155238886?text=join%20satisfied-inside"
+    <!-- <a href="https://wa.me/14155238886?text=join%20satisfied-inside"
        target="_blank"
        rel="noopener noreferrer"
        class="fixed bottom-3 right-3 bg-[#25D366] hover:bg-[#1ebe57] rounded-full sm:w-13 sm:h-11 md:w-16 md:h-16 flex items-center justify-center z-10"
        aria-label="Chat on WhatsApp">
       <i class="fab fa-whatsapp text-white text-5xl"></i>
-    </a>
+    </a> -->
+
 
 </body>
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+
 </html>
